@@ -1,20 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View,Image } from 'react-native';
+import { StyleSheet, Text, View,Image,ImageBackground } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <View style={styles.ImageContainer}>
-      <Image source={require('./assets/logo.png')} style={styles.Image} />
+      <ImageBackground source={require('./assets/background.png')} resizeMode="cover" style={styles.backgroundImage} > 
+
+      <View style={styles.logoContainer}>
+        <Text> Login to SAIB</Text>
+      <Image source={require('./assets/logo.png')} style={styles.logoImage} />
       </View>
-
-<Text> Welcome to Saib</Text>
-
-      <View>
-      
-    </View>
-
+     
+      </ImageBackground>
     </View>
     
   );
@@ -23,18 +21,21 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
   },
-  ImageContainer:{
-    //alignSelf:'top',
+  logoContainer:{
+    marginTop: 80,
+    flex:1,
+    // alignItems:'flex-start',
+    justifyContent:'flex-start'
   },
-  Image: {
-    height: 100,
-    width:100,
-    alignSelf: 'center',
-    marginTop: 50,
+  logoImage: {
+    height: 150,
+    width:150,
+    alignSelf: 'flex-start',
     marginBottom: 20
  
-  }
+  },
+  backgroundImage:{
+    flex: 1,  
+  },
 });
